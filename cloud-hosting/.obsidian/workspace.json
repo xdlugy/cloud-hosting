@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Oryginał.md",
+                "file": "architecture.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Oryginał"
+              "title": "architecture"
             }
           }
         ]
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Oryginał.md",
+                "file": "architecture.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Oryginał"
+              "title": "Outline of architecture"
             }
           }
         ],
@@ -170,8 +170,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "bcddd8ffb447b1e7",
+  "active": "47c057dc93850010",
   "lastOpenFiles": [
-    "Oryginał.md"
+    "Oryginał.md",
+    "architecture.md"
   ]
 }
