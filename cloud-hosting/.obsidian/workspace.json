@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "architecture.md",
+                "file": "notatki.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "architecture"
+              "title": "notatki"
             }
           }
         ]
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "architecture.md",
+                "file": "notatki.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of architecture"
+              "title": "Outline of notatki"
             }
           }
         ],
@@ -170,9 +170,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "47c057dc93850010",
+  "active": "e950c45ac973fcb2",
   "lastOpenFiles": [
-    "Oryginał.md",
-    "architecture.md"
+    "panel-architecture.md",
+    "notatki.md",
+    "Oryginał.md"
   ]
 }
