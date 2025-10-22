@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notatki.md",
+                "file": "Oryginał.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "notatki"
+              "title": "Oryginał"
             }
           }
         ]
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notatki.md",
+                "file": "Oryginał.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of notatki"
+              "title": "Outline of Oryginał"
             }
           }
         ],
@@ -172,8 +172,8 @@
   },
   "active": "e950c45ac973fcb2",
   "lastOpenFiles": [
-    "panel-architecture.md",
     "notatki.md",
+    "panel-architecture.md",
     "Oryginał.md"
   ]
 }
