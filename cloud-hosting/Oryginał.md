@@ -59,11 +59,11 @@ Publiczna strona platformy hostingowej zostanie zbudowana w oparciu o system zar
 
 ### Panel zarządzania klienta
 
-Główny panel użytkownika zostanie zaimplementowany jako aplikacja webowa w PHP wykorzystująca framework Symfony 6. Framework ten zapewni solidną architekturę MVC, system routingu, ORM Doctrine do komunikacji z bazą danych oraz komponenty bezpieczeństwa. Panel będzie komunikował się z infrastrukturą poprzez API REST, wysyłając komendy do systemu zarządzania wirtualizacją. Każda akcja użytkownika, jak restart serwera czy tworzenie backupu, będzie wywoływała odpowiednie skrypty systemowe poprzez kolejki zadań RabbitMQ, zapewniając asynchroniczne przetwarzanie i skalowalność.
+Główny panel użytkownika zostanie zaimplementowany jako aplikacja webowa w PHP wykorzystująca framework Symfony 7. Framework ten zapewni solidną architekturę MVC, system routingu, ORM Doctrine do komunikacji z bazą danych oraz komponenty bezpieczeństwa. Panel będzie komunikował się z infrastrukturą poprzez API REST, wysyłając komendy do systemu zarządzania wirtualizacją.
 
 ### Infrastruktura hostingu webowego
 
-Usługi hostingowe będą realizowane poprzez konteneryzację z wykorzystaniem Docker oraz orkiestracji Kubernetes. Każdy klient otrzyma izolowany kontener z preinstalowanym stosem LAMP/LEMP. Serwery webowe Apache i Nginx będą dostępne do wyboru jako obrazy Docker, co umożliwi łatwe przełączanie między nimi. Środowiska uruchomieniowe PHP (wersje 7.4, 8.0, 8.1, 8.2), Node.js oraz Python będą również konteneryzowane, pozwalając na równoległe działanie różnych wersji. Reverse proxy na bazie Traefik będzie zarządzać routingiem ruchu do odpowiednich kontenerów oraz automatycznie generować certyfikaty SSL Let's Encrypt.
+Usługi hostingowe będą realizowane poprzez konteneryzację z wykorzystaniem Docker oraz orkiestracji Kubernetes. Każdy klient otrzyma izolowany kontener z preinstalowanym stosem LAMP/LEMP. Serwery webowe Apache i Nginx będą dostępne do wyboru jako obrazy Docker, co umożliwi łatwe przełączanie między nimi. Środowiska uruchomieniowe PHP (wersje 7.4, 8.0, 8.1, 8.2), Node.js oraz Python będą również konteneryzowane, pozwalając na równoległe działanie różnych wersji.
 
 ### System pocztowy
 
@@ -88,13 +88,68 @@ Całość infrastruktury będzie monitorowana przez stack Prometheus i Grafana d
 System będzie działał na klastrze serwerów fizycznych z systemem Rocky Linux lub Ubuntu Server jako host OS, zapewniając stabilną i bezpieczną podstawę dla całej platformy. Komunikacja między komponentami będzie zabezpieczona przez wewnętrzną sieć VLAN z szyfrowaniem TLS dla wszystkich połączeń.
 # 4. Projekt architektury systemu
 
-## 4.1. Wymagania oraz analiza
+## 4.1. Wymagania
+
+### HOSTING WEB
+
+#### Wymagania funkcjonalne
+
+- System musi umożliwiać wybór wersji PHP (7.4, 8.0, 8.1, 8.2) dla każdej domeny
+- System musi automatycznie generować certyfikat SSL Let's Encrypt dla każdej domeny
+- System musi umożliwiać utworzenie do 10 baz danych MySQL/PostgreSQL na pakiet
+- System musi zapewniać dostęp FTP/SFTP do katalogu głównego hostingu
+- System musi umożliwiać instalację WordPress/Joomla/Drupal jednym kliknięciem
+
+#### Wymagania niefunkcjonalne
+
+- System musi zapewniać uptime na poziomie minimum 99.5% miesięcznie
+- Limit równoczesnych połączeń PHP na poziomie minimum 20 procesów
+
+### DYSK WIRTUALNY (CLOUD STORAGE)
+
+#### Wymagania funkcjonalne
+
+- System musi umożliwiać upload plików do 2GB pojedynczego pliku przez przeglądarkę
+- System musi generować publiczne linki do udostępniania z opcją wygaśnięcia
+- System musi umożliwiać przywrócenie usuniętych plików do 30 dni wstecz
+- System musi obsługiwać drag & drop dla uploadu wielu plików jednocześnie
+
+#### Wymagania niefunkcjonalne
+
+- Dostępność usługi minimum 99.9% w skali miesiąca
+
+### VPS (VIRTUAL PRIVATE SERVER)
+
+#### Wymagania funkcjonalne
+
+- System musi umożliwiać restart/stop/start VPS z poziomu panelu
+
+#### Wymagania niefunkcjonalne
+
+- Czas provisioningu nowego VPS nie może przekraczać 5 minut
+- Dostępność infrastruktury VPS minimum 99.95% SLA miesięcznie
+
+### PANEL UŻYTKOWNIKA
+
+#### Wymagania funkcjonalne
+
+- System musi wyświetlać status wszystkich aktywnych usług na dashboardzie
+- System musi umożliwiać zmianę hasła z wymogiem siły hasła (min. 8 znaków, cyfry, znaki specjalne)
+
+#### Wymagania niefunkcjonalne
+
+- Panel musi być responsywny i działać na urządzeniach mobilnych (viewport >= 320px)
+- Sesja użytkownika musi wygasać po 30 minutach nieaktywności
 
 ## 4.2. Wizualizacja abstrakcyjna
+
+![[RLFTJjim5BxFKtZiWYiqj4dLhYPAQIlKbWK2usAQfjF4H5uIEpfs2Ecq6wGznDvbb_1UiuyT5g8s5xM_x_Fn-VbyeWsWQQgIpLHLAycb-Nuc84UeeZSPlnEIiwlvx7fwiLpFMLg2rf4kXAp1AbZQdqbCLt9cmxmVi5j8YnnL8xEPAXMojukv-_QTPpyZPd-dunFpoUB3Ok4vXHd7W1yVJoQp6U5JHDM-Xdz5KMqZGSxPmIsWDYsm6lcEIm.png]]
 
 ### 4.2.1. Proces biznesowy systemu
 
 ### 4.2.2. Diagram przepływu danych systemu
+
+
 
 # 5. Implementacja systemu
 
