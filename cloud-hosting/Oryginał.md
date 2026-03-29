@@ -75,11 +75,11 @@ Bazy danych będą oferowane jako usługi konteneryzowane z wykorzystaniem oficj
 
 ### Wirtualizacja VPS
 
-Środowiska VPS będą uruchamiane przy użyciu technologii KVM (Kernel-based Virtual Machine) zarządzanej przez Proxmox VE lub alternatywnie OpenStack. KVM zapewni pełną wirtualizację sprzętową z near-native performance, umożliwiając uruchamianie różnych systemów operacyjnych. Każdy VPS otrzyma dedykowane zasoby CPU, RAM i dysku z gwarantowaną alokacją. Libvirt będzie służył jako warstwa abstrakcji do zarządzania maszynami wirtualnymi, a QEMU jako hypervisor. Systemy operacyjne Ubuntu, Debian i CentOS będą dostępne jako przygotowane obrazy z cloud-init dla automatycznej konfiguracji początkowej.
+Środowiska VPS będą uruchamiane przy użyciu technologii KVM (Kernel-based Virtual Machine) zarządzanej przez Proxmox VE. KVM zapewni pełną wirtualizację sprzętową z near-native performance, umożliwiając uruchamianie różnych systemów operacyjnych. Każdy VPS otrzyma dedykowane zasoby CPU, RAM i dysku z gwarantowaną alokacją. Libvirt będzie służył jako warstwa abstrakcji do zarządzania maszynami wirtualnymi, a QEMU jako hypervisor. Systemy operacyjne Ubuntu, Debian i CentOS będą dostępne jako przygotowane obrazy z cloud-init dla automatycznej konfiguracji początkowej.
 
 ### Manager plików w chmurze
 
-Usługa dysku wirtualnego zostanie zaimplementowana jako aplikacja PHP/Symfony współpracująca z Nextcloud API lub jako własne rozwiązanie wykorzystujące Flysystem - abstrakcję PHP dla różnych systemów storage. Backend storage będzie oparty o MinIO (kompatybilny z S3) lub Ceph dla zapewnienia skalowalności i redundancji. Aplikacja będzie oferować interfejs webowy z drag&drop zbudowany w Vue.js, synchronizację przez WebDAV oraz API REST dla aplikacji mobilnych. Symfony będzie zarządzać uprawnieniami, generowaniem linków publicznych oraz wersjonowaniem plików.
+Usługa dysku wirtualnego zostanie zaimplementowana jako aplikacja PHP/Symfony współpracująca z Nextcloud API lub jako własne rozwiązanie wykorzystujące Flysystem - abstrakcję PHP dla różnych systemów storage. Backend storage będzie oparty o MinIO (kompatybilny z S3) lub Ceph dla zapewnienia skalowalności i redundancji. Aplikacja będzie oferować interfejs webowy z drag&drop zbudowany w technologii React, synchronizację przez WebDAV oraz API REST dla aplikacji mobilnych. Symfony będzie zarządzać uprawnieniami, generowaniem linków publicznych oraz wersjonowaniem plików.
 
 ### Technologie wspierające
 

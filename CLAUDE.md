@@ -4,43 +4,62 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This repository contains an engineering thesis project (praca inżynierska) focused on designing and creating a cloud hosting system ("Zaprojektowanie i stworzenie systemu rozwiązań hostingowych i chmurowych").
+Engineering thesis ("Zaprojektowanie i stworzenie systemu rozwiązań hostingowych i chmurowych") — a cloud hosting platform with three service tiers: web hosting, VPS, and cloud file storage. Documentation is in Polish. Currently in design phase — no source code yet.
 
-**Language**: The thesis documentation is in Polish.
+## Technology Stack
 
-**Project Stage**: Early design phase - architecture and requirements are being defined before implementation.
+| Layer | Technology |
+|---|---|
+| Public sales site | WordPress + WooCommerce |
+| Client panel backend | Symfony 7.4 (Doctrine ORM, Symfony Messenger, Symfony Security) |
+| Client panel frontend | React + TailwindCSS |
+| Platform database | PostgreSQL (panel data + all service metadata) |
+| Customer databases | PostgreSQL, MySQL, MongoDB (customer's choice per service) |
+| Web hosting | Docker containers orchestrated by Kubernetes |
+| VPS | KVM virtual machines managed by Proxmox VE (libvirt/QEMU) |
+| Object storage | MinIO (S3-compatible) |
+| Email | Postfix + Dovecot + Roundcube |
+| DNS | PowerDNS (MySQL backend) |
+| Monitoring | Prometheus + Grafana |
+| Queue/messaging | RabbitMQ |
+| Reverse proxy | Traefik |
+| Backup | Restic |
+| CI/CD | GitLab CI/CD |
+| SSL | Let's Encrypt |
 
-## Repository Structure
+## Architecture
 
-- `cloud-hosting/` - Contains thesis documentation and notes
-  - `Oryginał.md` - Thesis outline with chapter structure
-  - `.obsidian/` - Obsidian vault configuration for note-taking and documentation
-- Root contains the main thesis document (Word format)
+**Three service types**, each with distinct infrastructure:
 
-## Thesis Structure
+- **Web Hosting**: Per-customer Docker Compose stacks (nginx-proxy + php-fpm + database + phpmyadmin), orchestrated by Kubernetes. Resource limits enforced via Docker. Network isolation via Docker networks.
+- **VPS**: Full KVM virtual machines provisioned via Proxmox VE API. Cloud-init templates for automated OS setup. VNC/noVNC for browser-based console access.
+- **File Storage**: MinIO with per-user buckets and access policies. Web UI with drag-and-drop upload.
 
-The thesis follows this outline:
+**Command execution**: Privileged API daemon pattern — the Symfony web process never runs privileged commands directly. Operations are queued via RabbitMQ (Symfony Messenger) and executed by a background worker with appropriate permissions.
 
-1. **Wstęp (Introduction)** - Context about cloud hosting and project goals
-2. **Wykorzystywane narzędzia i technologie (Tools and Technologies)** - To be defined
-3. **Projekt architektury systemu (System Architecture Design)**
-   - Requirements and analysis
-   - Abstract visualization (business process, data flow diagrams)
-4. **Implementacja systemu (System Implementation)** - Code will be added here
-5. **Testowanie i zabezpieczenia (Testing and Security)**
-6. **Wnioski (Conclusions)**
-7. **Bibliografia (Bibliography)**
+## Caveats
 
-## Project Goals
+- `cloud-hosting/panel-architecture.md` contains early brainstorming that references **Laravel** code examples and **Vue.js**. The actual choices are **Symfony 7.4** and **React**. When generating code, use Symfony patterns (Doctrine, Messenger, Security component), not Laravel.
+- Documentation and thesis text are in Polish. Code identifiers should be in English.
 
-Design and implement a cloud hosting system that enables:
-- Remote management of virtual resources in cloud environment
-- Flexibility, performance, and security for application hosting and data storage
-- Resource virtualization tools
+## Documentation Map
 
-## Development Notes
+- `cloud-hosting/Oryginał.md` — thesis text (requirements ch. 2, tech stack ch. 3, architecture ch. 4)
+- `cloud-hosting/panel-architecture.md` — detailed architecture brainstorm (contains outdated "or" options — see Caveats)
+- `cloud-hosting/uml architektura systemu.md` — PlantUML component diagram (work in progress)
+- `cloud-hosting/Kroki jakie wykonuję.md` — implementation steps log
+- Root `.docx` — formal thesis document for submission
 
-When implementing the system:
-- The target is to create a practical cloud hosting solution with virtualization capabilities
-- Architecture should prioritize elasticity, scalability, and data availability
-- Security and testing will be critical components
+## Target Infrastructure
+
+Hetzner dedicated server: 8GB RAM, 80GB storage, Debian 13, Proxmox VE.
+
+## Commands
+
+No source code exists yet. When implementation begins, expected tooling:
+
+- `symfony console` — backend CLI commands
+- `npm run dev` / `npm run build` — React frontend
+- `docker compose` — local development environment
+- `kubectl` — Kubernetes cluster management
+- `ansible-playbook` — infrastructure deployment
