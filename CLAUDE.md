@@ -22,7 +22,7 @@ Engineering thesis ("Zaprojektowanie i stworzenie systemu rozwiązań hostingowy
 | DNS | PowerDNS (MySQL backend) |
 | Monitoring | Prometheus + Grafana |
 | Queue/messaging | RabbitMQ |
-| Reverse proxy | Traefik |
+| Reverse proxy | Nginx |
 | Backup | Restic |
 | CI/CD | GitLab CI/CD |
 | SSL | Let's Encrypt |

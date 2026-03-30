@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "3016f647b3868834",
+        "id": "9b9fde656f457107",
         "type": "tabs",
         "children": [
           {
-            "id": "31e55aaafd32aa49",
+            "id": "da12db75ec086212",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Oryginał.md",
+                "file": "v2/Oryginał.md",
                 "mode": "source",
                 "source": false
               },
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Oryginał.md",
+                "file": "v2/Oryginał.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -169,10 +169,31 @@
       "bases:Create new base": false
     }
   },
-  "active": "31e55aaafd32aa49",
+  "active": "47c057dc93850010",
   "lastOpenFiles": [
-    "RLFTJjim5BxFKtZiWYiqj4dLhYPAQIlKbWK2usAQfjF4H5uIEpfs2Ecq6wGznDvbb_1UiuyT5g8s5xM_x_Fn-VbyeWsWQQgIpLHLAycb-Nuc84UeeZSPlnEIiwlvx7fwiLpFMLg2rf4kXAp1AbZQdqbCLt9cmxmVi5j8YnnL8xEPAXMojukv-_QTPpyZPd-dunFpoUB3Ok4vXHd7W1yVJoQp6U5JHDM-Xdz5KMqZGSxPmIsWDYsm6lcEIm.png",
     "Oryginał.md",
+    "v2/Oryginał.md",
+    "v2/Oryginał.md.tmp.82043.1774898669687",
+    "v2/Oryginał.md.tmp.82043.1774898314810",
+    "v2/Oryginał.md.tmp.82043.1774898306604",
+    "v2/Oryginał.md.tmp.82043.1774898291392",
+    "v2/Oryginał.md.tmp.82043.1774898289467",
+    "v2/Oryginał.md.tmp.82043.1774898288238",
+    "v2/Oryginał.md.tmp.82043.1774898284961",
+    "v2/Oryginał.md.tmp.82043.1774898283653",
+    "v2/Oryginał.md.tmp.82043.1774898280986",
+    "v2/Oryginał.md.tmp.82043.1774898278794",
+    "v2/diagram-erd.md",
+    "Untitled.canvas",
+    "2026-03-30.md",
+    "v2/diagram-komponentow.md",
+    "v2/diagram-przypadkow-uzycia.md",
+    "v2/diagram-przeplywy-danych.md",
+    "v2/diagram-sekwencji-upload-plikow.md",
+    "v2/diagram-sekwencji-provisioning-vps.md",
+    "v2/diagram-sekwencji-provisioning-hosting.md",
+    "v2/diagram-wdrozenia.md",
+    "RLFTJjim5BxFKtZiWYiqj4dLhYPAQIlKbWK2usAQfjF4H5uIEpfs2Ecq6wGznDvbb_1UiuyT5g8s5xM_x_Fn-VbyeWsWQQgIpLHLAycb-Nuc84UeeZSPlnEIiwlvx7fwiLpFMLg2rf4kXAp1AbZQdqbCLt9cmxmVi5j8YnnL8xEPAXMojukv-_QTPpyZPd-dunFpoUB3Ok4vXHd7W1yVJoQp6U5JHDM-Xdz5KMqZGSxPmIsWDYsm6lcEIm.png",
     "uml architektura systemu.md",
     "notatki.md",
     "Kroki jakie wykonuję.md",
