@@ -37,6 +37,10 @@ Engineering thesis ("Zaprojektowanie i stworzenie systemu rozwiązań hostingowy
 
 **Command execution**: Privileged API daemon pattern — the Symfony web process never runs privileged commands directly. Operations are queued via RabbitMQ (Symfony Messenger) and executed by a background worker with appropriate permissions.
 
+## Workflow
+
+- **Always ask clarifying questions before starting work on a task.** Do not assume intent — confirm scope, approach, and constraints with the user first.
+
 ## Caveats
 
 - `cloud-hosting/panel-architecture.md` contains early brainstorming that references **Laravel** code examples and **Vue.js**. The actual choices are **Symfony 7.4** and **React**. When generating code, use Symfony patterns (Doctrine, Messenger, Security component), not Laravel.
